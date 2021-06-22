@@ -27,6 +27,14 @@ a {
   background: #162d43;
 }
 
+#darkBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 5%;
+  padding: 32px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -62,4 +70,45 @@ form > input {
 
 form > input::placeholder {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  margin: 5px 0 0;
+  height: 44px;
+  background: #3b9eff;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background: #21609f;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content > a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.show {
+  display: block;
 }

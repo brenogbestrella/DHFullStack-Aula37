@@ -8,12 +8,22 @@
     <div class="background" id="background">
       <form id="form">
         <input id="user" type="text" placeholder="Digite seu usuário"/>
-        <input type="password" placeholder="Digite sua senha"/>
+        <input id="password" type="password" placeholder="Digite sua senha"/>
         <button id="loginBtn" type="submit">Login</button>
-        <span id="color">Azul</span>
-      </form>    
-    </div>        
+        <!-- <span id="color">Azul</span> -->
+      </form>
+      <button id="darkBtn" type="button">Dark</button> 
 
+      <div class="dropdown">
+        <button id="dropbtn" class="dropbtn">Menu</button>
+          <div class="dropdown-content">
+            <a href="#">Minha Conta</a>
+            <a href="#">Meus Pedidos</a>
+            <a href="#">Produtos</a>
+            <a href="#">Sair</a>
+          </div>
+      </div>
+    </div>        
     <script src="/javascripts/main.js"></script>
   </body>
 </html>
