@@ -109,6 +109,11 @@ form > input::placeholder {
   display: block;
 }
 
+.error {
+  display: none;
+  color: #ff6b6b;
+}
+
 .show {
   display: block;
 }
