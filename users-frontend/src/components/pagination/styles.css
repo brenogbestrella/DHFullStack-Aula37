@@ -1,0 +1,34 @@
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.pagination-arrows {
+    background: #fff;
+    color: #3b9eff;
+    border: 1px solid #3b9eff;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+}
+
+.pagination-arrows:hover {
+    background: #3b9eff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.pagination-arrows:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
