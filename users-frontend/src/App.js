@@ -1,5 +1,6 @@
-import { MdNavigateBefore, MdNavigateNext  } from "react-icons/md"
-
+// import { MdNavigateBefore, MdNavigateNext  } from "react-icons/md"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 import './App.css';
 import { useState } from "react";
@@ -9,12 +10,15 @@ import Pagination from "./components/pagination"
 // import Header from "./components/header"
 // import Footer from "./components/footer"
 
+import PhotoInput from './components/photoInput';
+
 import { getCepData } from "./services/viacep";
 
 function App() {
 
   const [cep, setCep] = useState("");
   const [logradouro, setLogradouro] = useState("");
+  const [photo, setPhoto] = useState("")
   const [page, setPage] = useState(1)
 
 
@@ -26,7 +30,7 @@ function App() {
   return (
     <div className="background" id="background">
       <form id="formSignup">
-
+        <PhotoInput photo={photo} onPhotoChange={(newPhoto) => setPhoto(newPhoto)} />
             <span id="userErrorSignup" className="error">Usuário incorreto</span>
             <input id="userSignup" type="text" placeholder="Digite seu usuário"/>
             <span id="passwordErrorSignup" className="error">Senha incorreta</span>
@@ -61,7 +65,7 @@ function App() {
         onPageChange={(newPage) => setPage(newPage)}
       />
       </form>
-      
+      <ToastContainer />
     </div>
   );
 }
