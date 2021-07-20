@@ -2,16 +2,16 @@ import "./styles.css"
 import { useState } from "react";
 import { MdNavigateBefore, MdNavigateNext  } from "react-icons/md"
 import { ArrowButton } from "./styles"
-import { toast } from "react-toastify"
+// import { toast } from "react-toastify"
 
 export default function Pagination(props) {
     const [darkMode, setDarkMode] = useState(false);
     return (
         <div className = "pagination">
-            <button type="button" onClick={() => {
+            {/* <button type="button" onClick={() => {
                 setDarkMode(!darkMode);
                 toast.success("Cadastrado com sucesso")
-            }}>dark</button>
+            }}>dark</button> */}
             <ArrowButton 
                 type="button" 
                 disabled={props.page === 1} 

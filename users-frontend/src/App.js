@@ -1,9 +1,9 @@
 // import { MdNavigateBefore, MdNavigateNext  } from "react-icons/md"
-import { ToastContainer } from "react-toastify"
+// import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 import './App.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Pagination from "./components/pagination"
 
@@ -13,6 +13,7 @@ import Pagination from "./components/pagination"
 import PhotoInput from './components/photoInput';
 
 import { getCepData } from "./services/viacep";
+import { getUsers } from "./services/users";
 
 function App() {
 
@@ -20,6 +21,16 @@ function App() {
   const [logradouro, setLogradouro] = useState("");
   const [photo, setPhoto] = useState("")
   const [page, setPage] = useState(1)
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function loadUserList() {
+      const usersBackend = await getUsers(page);
+      setUsers(usersBackend);
+    }
+
+    loadUserList()
+  }, [page]);
 
 
   async function onBlurCep() {
@@ -29,6 +40,16 @@ function App() {
 
   return (
     <div className="background" id="background">
+      <ul>
+        {users.map((usuario, index) => (
+          <li key={index}>{usuario.email}</li>
+        ))}
+      </ul>
+      <Pagination 
+        page={page} 
+        onPageChange={(newPage) => setPage(newPage)}
+      />
+
       <form id="formSignup">
         <PhotoInput photo={photo} onPhotoChange={(newPhoto) => setPhoto(newPhoto)} />
             <span id="userErrorSignup" className="error">Usuário incorreto</span>
@@ -60,12 +81,9 @@ function App() {
 
         <button id="signUpBtn" type="submit">Cadastrar</button>
         
-        <Pagination 
-        page={page} 
-        onPageChange={(newPage) => setPage(newPage)}
-      />
       </form>
-      <ToastContainer />
+
+      {/* <ToastContainer /> */}
     </div>
   );
 }
